@@ -1,35 +1,21 @@
-let tempt = (function(){
-    let farenheitValue = document.querySelector('#myInput').value;
 
-    function calculate(){
+let FarenheitToCelsius = (()=>{
 
-        let celsiusValue = Math.floor((farenheitValue - 32) * 5/9);
-        return celsiusValue;
-
+    let calculateFarenheit = (farenheit) => {
+        return ((farenheit - 32) * 5/9).toFixed();
     }
 
-    function printData(){
-        let value = calculate();
-
-        let spanCelsius = document.querySelector('#js-celsius');
-
-        console.log(spanCelsius)
-
-        spanCelsius.textContent = "Celsius: " + value;
-
+    let printCelsius = () => {
+        console.log(calculateFarenheit(100));
     }
 
     return {
-        printData
-
+        printCelsius
     }
 
-
 });
 
-let btnTemperature = document.querySelector('#btnTemperature');
 
-btnTemperature.addEventListener('click', function(){
-    tempt().printData()
-});
+
+FarenheitToCelsius().printCelsius();
 
